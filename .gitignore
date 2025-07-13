@@ -1,0 +1,13 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore virtual environment
+venv/
+
+# Ignore Env File (Sensitive Information)
+.env
+
+# Ignore uploaded files folder 
+uploaded_files/
