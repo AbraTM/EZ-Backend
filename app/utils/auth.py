@@ -27,7 +27,10 @@ def verify_password(plain_password, hashed_password):
 # Function to create a JWT Token
 def create_access_token(data: dict, expired_delta: timedelta = None):
     token_data = data.copy()
-    expire = datetime.now(timezone.utc) + (expired_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+    if expired_delta is not None:
+        expire = datetime.now(timezone.utc) + expired_delta
+    else:
+        expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     token_data.update({"exp": expire})
     encoded_jwt = jwt.encode(token_data, JWT_SECRET_KEY, algorithm=HASH_ALGORITHM)
     return encoded_jwt
@@ -56,3 +59,6 @@ def get_current_user(request: Request, db: Session = Depends(get_db)):
         raise token_error
     
     return user
+
+
+#

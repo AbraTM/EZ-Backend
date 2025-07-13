@@ -1,6 +1,6 @@
 # EZ Backend Intern Assignment
 
-A secure file-sharing system between two different types of users.# EZ Backend Intern Assignment
+A secure file-sharing system between two different types of users.
 
 A secure, role-based backend system built with **FastAPI**, supporting user authentication, file upload, and secure file download with encrypted URLs.
 
@@ -94,3 +94,33 @@ uvicorn app.main:app --reload
 ## API Docs
 
 Turn on the server first, then visit http://127.0.0.1:8000/docs to access the interactive Swagger UI.
+
+---
+
+## Postman Collection
+
+A Postman collection (`EZ Backend(FastAPI).postman_collection.json`) is included to help you test the API easily.
+
+### How to use
+
+1. Import the collection into Postman.
+2. Start your FastAPI server locally (`uvicorn app.main:app --reload`).
+3. Run the requests in order: **Signup → Login → Upload/List/Generate Download Link → Download**.
+
+**Important:**
+
+- Always start with Signup or Login to set the authentication cookie.
+- Check cookies in Postman (top-right near Send) if needed.
+- You can modify files or parameters to test different scenarios.
+
+---
+
+## How do you plan on deploying this to the production environment?
+
+I would use Docker to containerize the application, which makes it easy to package all dependencies, ensures consistency across environments, and simplifies scaling and updates.
+
+Then, I would set up a reverse proxy server using Nginx, which helps handle incoming traffic efficiently and can help with encryption (HTTPS).
+
+After that, I would deploy it on a cloud VM like Amazon EC2 or Google Cloud Compute Engine, giving me full control over the infrastructure and flexibility to configure resources as needed.
+
+Alternatively, if I just need to deploy it as a standalone API, I can also use managed services like Render, which simplify deployment without having to manage servers manually.

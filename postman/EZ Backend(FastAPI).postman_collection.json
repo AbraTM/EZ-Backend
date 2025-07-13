@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "fd2a4dd9-fcf4-49e5-896b-061d5f86953f",
+		"name": "EZ Backend(FastAPI)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36474221"
+	},
+	"item": [
+		{
+			"name": "Check Health",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/check-health",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"check-health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign Up",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Tushar\",\r\n  \"email\": \"tushar@example.com\",\r\n  \"password\": \"mypassword\",\r\n  \"user_type\": \"ops\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/auth/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"mypassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"description": "Run this request first. It authenticates the user and sets the access token cookie needed for the other requests. Replace the email and password with valid user credentials.",
+			"response": []
+		},
+		{
+			"name": "File Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uploaded_file",
+							"type": "file",
+							"src": "/C:/Users/tusha/Downloads/exported-text.docx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/files/upload",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"files",
+						"upload"
+					]
+				}
+			},
+			"description": "Run the Login request first to set the auth cookie before uploading a file. Logged in user must of Operations type (ops)",
+			"response": []
+		},
+		{
+			"name": "List Files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/files/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"files",
+						"list"
+					]
+				}
+			},
+			"description": "Run the Login request first to set the authentication cookie. This request uploads a file to the server. Make sure to select a file in the form-data before sending.",
+			"response": []
+		},
+		{
+			"name": "Generate File Download Link",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/files/generate-download-link/941e72b8-8d3f-4173-a926-4d92572821d7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"files",
+						"generate-download-link",
+						"941e72b8-8d3f-4173-a926-4d92572821d7"
+					]
+				}
+			},
+			"description": "Run the Login request first. Then run 'List Files' to get file IDs. Replace the file ID in this URL with the actual ID you want to generate a download link for. This request uses the authentication cookie to verify access.",
+			"response": []
+		}
+	]
+}
