@@ -115,6 +115,14 @@ A Postman collection (`EZ Backend(FastAPI).postman_collection.json`) is included
 
 ---
 
+## Some of test cases
+
+All API endpoints, request/response schemas, and expected behaviors (including validations) are fully documented in the interactive Swagger UI. You can view and interact with them at http://127.0.0.1:8000/docs#.
+
+I will add detailed written test cases and example steps to this README soon.
+
+---
+
 ## How do you plan on deploying this to the production environment?
 
 I would use Docker to containerize the application, which makes it easy to package all dependencies, ensures consistency across environments, and simplifies scaling and updates.
