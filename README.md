@@ -93,4 +93,4 @@ uvicorn app.main:app --reload
 
 ## API Docs
 
-Visit http://127.0.0.1:8000/docs# for interactive Swagger UI.
+Turn on the server first, then visit http://127.0.0.1:8000/docs to access the interactive Swagger UI.
